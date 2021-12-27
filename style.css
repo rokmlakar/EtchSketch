@@ -1,0 +1,17 @@
+.gridrow{
+    border: solid 1px #f4f4f4;
+    padding: 15px;
+    text-align: center;
+
+}
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+
+}
+
+.hovered{
+    background-color: blue;
+    border: solid 1px blue;
+}
