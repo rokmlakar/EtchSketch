@@ -47,12 +47,19 @@ function clear(){
     makeGrid(size)
 };
 
+
 function hover(){
+    console.log("hovering")
     let onHover = document.querySelectorAll('.gridrow');
+    
     onHover.forEach((item) =>{
-    item.addEventListener('mousedowns', e =>{
+    item.addEventListener('mouseenter', e =>{
         e.target.setAttribute("style", "")
         e.target.classList.add('hovered')
+        if(MouseEvent.button == 0){
+            console.log("šshwarma")
+        }
+        
     })   
 });
 }
@@ -63,7 +70,7 @@ function rgb(){
         let r = Math.floor(Math.random()*256);
         let g = Math.floor(Math.random()*256);
         let b = Math.floor(Math.random()*256);
-        item.addEventListener('mousedown', e =>{
+        item.addEventListener('mouseenter', e =>{
             e.target.classList.remove('hovered');
             e.target.setAttribute('style', `background-color: rgb(${r},${g}, ${b});`);
         })
@@ -73,7 +80,7 @@ function rgb(){
 function eraser(){
     let  erase = document.querySelectorAll('.gridrow');
     erase.forEach((item) =>{
-        item.addEventListener('mousedown', e=>{
+        item.addEventListener('mouseenter', e=>{
             e.target.classList.remove('hovered');
             e.target.setAttribute('style', "");
         })
