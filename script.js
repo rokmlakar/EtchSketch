@@ -50,7 +50,7 @@ function clear(){
 function hover(){
     let onHover = document.querySelectorAll('.gridrow');
     onHover.forEach((item) =>{
-    item.addEventListener('mouseenter', e =>{
+    item.addEventListener('mousedowns', e =>{
         e.target.setAttribute("style", "")
         e.target.classList.add('hovered')
     })   
@@ -63,7 +63,7 @@ function rgb(){
         let r = Math.floor(Math.random()*256);
         let g = Math.floor(Math.random()*256);
         let b = Math.floor(Math.random()*256);
-        item.addEventListener('mouseenter', e =>{
+        item.addEventListener('mousedown', e =>{
             e.target.classList.remove('hovered');
             e.target.setAttribute('style', `background-color: rgb(${r},${g}, ${b});`);
         })
@@ -73,7 +73,7 @@ function rgb(){
 function eraser(){
     let  erase = document.querySelectorAll('.gridrow');
     erase.forEach((item) =>{
-        item.addEventListener('mouseenter', e=>{
+        item.addEventListener('mousedown', e=>{
             e.target.classList.remove('hovered');
             e.target.setAttribute('style', "");
         })
