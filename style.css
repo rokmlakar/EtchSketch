@@ -7,16 +7,31 @@ body{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     background-color: #4158D0;
     background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-    
-    
+    text-align: center;
 }
 
 h1{
-    text-align: center;
     font-size: 60px;
     color: #5F57CD;
     text-shadow: 4px 4px #D267B2;
 }
+h3,p{
+    font-size: 30px;
+    color:#EFA987 ;
+    text-shadow: 2px 2px #5F57CD;
+    margin: 5px;
+}
+p{
+    font-weight: 600;
+    margin: 5px 0 20px;
+    font-size: 22px;
+}
+
+#range{
+    background:#5F57CD ;
+    color: yellowgreen;
+}
+
 
 .gridrow{
      border: solid 1px #f4f4f4;

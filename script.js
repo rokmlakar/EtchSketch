@@ -3,11 +3,20 @@ const resBtn = document.getElementById('btn-res');
 const rgbBtn = document.getElementById('btn-rgb');
 const defaultBtn = document.getElementById('btn-def');
 const eraseBtn = document.getElementById('btn-ers');
+const gridSize = document.getElementById('range');
+const gridValue = document.getElementById('grid-value');
 
-let size = 18;
+let size = gridSize.value;
+
+gridSize.oninput = function(){
+    gridValue.innerText = `${this.value}x${this.value}`;
+    size = this.value;
+    reset();
+    makeGrid(size)
+}
 
 makeGrid(size);
-resBtn.addEventListener('click', resetGrid);
+resBtn.addEventListener('click', clear);
 rgbBtn.addEventListener('click', rgb);
 defaultBtn.addEventListener('click', hover);
 eraseBtn.addEventListener('click', eraser);
@@ -16,11 +25,27 @@ function makeGrid(x){
     for(let i=0; i<(x*x); i++){
         let grid = document.createElement("div");
         container.appendChild(grid).className = "gridrow";
-        console.log(x)
     }
     container.setAttribute('style', `grid-template-columns: repeat(${x}, 2fr); grid-template-rows: repeat(${x}, 2fr);`);
     hover();
+    console.log(size)
 }
+
+function reset(){
+    let reset = document.querySelectorAll(".gridrow");
+    reset.forEach((item) =>{
+        item.remove();
+    })
+}
+
+function clear(){
+    let reset = document.querySelectorAll(".gridrow");
+
+    reset.forEach((item) => {
+        item.remove();
+    })
+    makeGrid(size)
+};
 
 function hover(){
     let onHover = document.querySelectorAll('.gridrow');
@@ -54,19 +79,3 @@ function eraser(){
         })
     })
 }
-
-function resetGrid(){
-    let reset = document.querySelectorAll(".gridrow");
-
-    reset.forEach((item) => {
-        item.remove();
-    })
-    let x = prompt("enter number of squares (max 100)");
-    while(x > 100 ){
-        x = prompt("enter number of squares (max 100)")
-    }
-    makeGrid(x);
-};
-
-
-
